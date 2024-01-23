@@ -96,27 +96,49 @@
 //}
 
 
-class Program
+//class Program
+//{
+//	static void Main(string[] args)
+//	{
+//		var words = new List<string> { "a", "bb", "ccc", "dddd" };
+
+//		var shortWords = words.Where(word => word.Length < 3).ToList();
+
+//		Console.WriteLine("First iteration");
+//		foreach (var word in shortWords)
+//		{
+//			Console.WriteLine(word);
+//		}
+//		words.Add("e");
+
+//		Console.WriteLine("Second iteration");
+//		foreach (var word in shortWords)
+//		{
+//			Console.WriteLine(word);
+//		}
+
+//		Console.ReadKey();
+//	}
+//}
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace LinqTutorial
 {
-	static void Main(string[] args)
+	class Program
 	{
-		var words = new List<string> { "a", "bb", "ccc", "dddd" };
-
-		var shortWords = words.Where(word => word.Length < 3).ToList();
-
-		Console.WriteLine("First iteration");
-		foreach (var word in shortWords)
+		static void Main(string[] args)
 		{
-			Console.WriteLine(word);
-		}
-		words.Add("e");
+			var numbers = new[] { 5, 9, 2, 12, 6 };
+			bool isAnyLargerThan10 = numbers.Any(number => number > 10);
+			Console.WriteLine(isAnyLargerThan10);
 
-		Console.WriteLine("Second iteration");
-		foreach (var word in shortWords)
-		{
-			Console.WriteLine(word);
-		}
 
-		Console.ReadKey();
+			Console.ReadKey();
+		}
 	}
 }
+
