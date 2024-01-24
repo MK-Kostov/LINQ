@@ -134,25 +134,39 @@ namespace LinqTutorial
 	{
 		static void Main(string[] args)
 		{
-			var numbers = new[] { 5, 9, 2, 12, 6 };
-			//bool is7Present = numbers.Contains(7);
-			//Console.WriteLine(is7Present);
-			var orderedNumbers = numbers.OrderBy(x => x);
-			foreach (var number in orderedNumbers)
-			{
-				Console.WriteLine(number);
-			}
+			IEnumerable<int> numbers = new[] { 16, 5, 9, 2, 12, 6 };
 
-			var words = new[] { "lion", "tiger", "snow leopard" };
+			var firstNumber = numbers.First();
+
+			Console.WriteLine(firstNumber);
+
+			var firstOdd = numbers.First(number => number % 2 == 1);
+			Console.WriteLine(firstOdd);
+
+			var lastNumber = numbers.Last();
+            Console.WriteLine(lastNumber);
+
+
+
+
+            //bool is7Present = numbers.Contains(7);
+            //Console.WriteLine(is7Present);
+            //var orderedNumbers = numbers.OrderBy(x => x);
+            //foreach (var number in orderedNumbers)
+            //{
+            //	Console.WriteLine(number);
+            //}
+
+            var words = new[] { "lion", "tiger", "snow leopard" };
 			//bool isTigerPresent = words.Contains("tiger");
 			//Console.WriteLine(isTigerPresent);
-			var orderedWords = words.OrderByDescending(x => x);
+			//var orderedWords = words.OrderByDescending(x => x);
 
-			foreach (var word in orderedWords)
-			{
-				Console.WriteLine(word);
+			//foreach (var word in orderedWords)
+			//{
+			//	Console.WriteLine(word);
 
-			}
+			//}
 			Console.ReadKey();
 		}
 	}
