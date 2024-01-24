@@ -123,98 +123,121 @@
 
 
 
-using Microsoft.Graph.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+//using Microsoft.Graph.Models;
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
 
-namespace LinqTutorial
+//namespace LinqTutorial
+//{
+//	class Program
+//	{
+//		static void Main(string[] args)
+//		{
+//			var numbers = new[] { 16, 5, 9, 2, 12, 6, };
+//var doubledNumbers = numbers.Select(number => number * 2);
+
+//	foreach (var number in doubledNumbers)
+//{
+
+//	Console.WriteLine(number);
+//}
+//IEnumerable<string> numbersAsStrings = numbers.Select(number => number.ToString());
+
+//foreach (var number in numbersAsStrings)
+//{
+
+//	Console.WriteLine(number);
+//}
+
+//var evenNumbers = numbers.Where(number => number % 2 == 0);
+
+//var numbersNoDublicate = numbers.Distinct();
+//foreach (var number in numbersNoDublicate)
+//{
+
+//	Console.WriteLine(number);
+//}
+
+//foreach (var number in evenNumbers)
+//{
+
+//	Console.WriteLine(number);
+//}
+//var firstNumber = numbers.First();
+
+//Console.WriteLine(firstNumber);
+
+//var firstOdd = numbers.First(number => number % 2 == 1);
+//Console.WriteLine(firstOdd);
+
+//var lastNumber = numbers.Last();
+//         Console.WriteLine(lastNumber);
+
+
+
+
+//bool is7Present = numbers.Contains(7);
+//Console.WriteLine(is7Present);
+//var orderedNumbers = numbers.OrderBy(x => x);
+//foreach (var number in orderedNumbers)
+//{
+//	Console.WriteLine(number);
+//}
+
+//var words = new[] { "lion", "tiger", "snow leopard" };
+//var numberedWords = words.Select((word, index) => $"{index + 1}.{word}");
+//Console.WriteLine("numberedWords:");
+
+//foreach (var word in numberedWords)
+//{
+//             Console.WriteLine(word);
+
+//}
+
+//var toUpperCase = words.Select(word => word.ToUpper());
+
+//foreach (var word in toUpperCase)
+//{
+//	Console.WriteLine(word);
+
+//}
+
+//bool isTigerPresent = words.Contains("tiger");
+//Console.WriteLine(isTigerPresent);
+//var orderedWords = words.OrderByDescending(x => x);
+
+//foreach (var word in orderedWords)
+//{
+//	Console.WriteLine(word);
+
+//}
+//			Console.ReadKey();
+//		}
+//	}
+//}
+
+var listsOfNumbers = new List<List<int>>
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			var numbers = new[] { 16, 5, 9, 2, 12, 6, };
-			//var doubledNumbers = numbers.Select(number => number * 2);
+	new List<int> { 15,68,20,12,19,8,55 },
+	new List<int> { 12,1,3,4,-19,8,7,6 },
+	new List<int> { 5,-6,-2,-12,-10,7 },
+};
 
-			//	foreach (var number in doubledNumbers)
-			//{
+var result = listsOfNumbers.Select(listsOfNumbers => new
+{
+	Count = listsOfNumbers.Count(),
+	Average = listsOfNumbers.Average()
+}).OrderByDescending(countAndAverage => countAndAverage.Average)
+.Select(countAndAverage =>
+$"Count is: {countAndAverage.Count}, " +
+$"Average is: {countAndAverage.Average}");
 
-			//	Console.WriteLine(number);
-			//}
-			IEnumerable<string> numbersAsStrings = numbers.Select(number => number.ToString());
+Console.WriteLine(string.Join(Environment.NewLine, result));
 
-			foreach (var number in numbersAsStrings)
-			{
+var pet = new { Name = "Jackie", Type = "Dog" };
 
-				Console.WriteLine(number);
-			}
+Console.ReadKey();
 
-			//var evenNumbers = numbers.Where(number => number % 2 == 0);
-
-			//var numbersNoDublicate = numbers.Distinct();
-			//foreach (var number in numbersNoDublicate)
-			//{
-
-			//	Console.WriteLine(number);
-			//}
-
-			//foreach (var number in evenNumbers)
-			//{
-
-			//	Console.WriteLine(number);
-			//}
-			//var firstNumber = numbers.First();
-
-			//Console.WriteLine(firstNumber);
-
-			//var firstOdd = numbers.First(number => number % 2 == 1);
-			//Console.WriteLine(firstOdd);
-
-			//var lastNumber = numbers.Last();
-			//         Console.WriteLine(lastNumber);
-
-
-
-
-			//bool is7Present = numbers.Contains(7);
-			//Console.WriteLine(is7Present);
-			//var orderedNumbers = numbers.OrderBy(x => x);
-			//foreach (var number in orderedNumbers)
-			//{
-			//	Console.WriteLine(number);
-			//}
-
-			var words = new[] { "lion", "tiger", "snow leopard" };
-			var numberedWords = words.Select((word, index) => $"{index + 1}.{word}");
-			Console.WriteLine("numberedWords:");
-
-			foreach (var word in numberedWords)
-			{
-                Console.WriteLine(word);
-
-			}
-
-			//var toUpperCase = words.Select(word => word.ToUpper());
-
-			//foreach (var word in toUpperCase)
-			//{
-			//	Console.WriteLine(word);
-
-			//}
-
-			//bool isTigerPresent = words.Contains("tiger");
-			//Console.WriteLine(isTigerPresent);
-			//var orderedWords = words.OrderByDescending(x => x);
-
-			//foreach (var word in orderedWords)
-			//{
-			//	Console.WriteLine(word);
-
-			//}
-			Console.ReadKey();
-		}
-	}
-}
 
 
