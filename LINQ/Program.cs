@@ -134,15 +134,30 @@ namespace LinqTutorial
 	{
 		static void Main(string[] args)
 		{
-			var numbers = new[] { 16, 5, 9, 2, 12, 6, 6, 9 };
-			var evenNumbers = numbers.Where(number => number % 2 == 0);
+			var numbers = new[] { 16, 5, 9, 2, 12, 6, };
+			//var doubledNumbers = numbers.Select(number => number * 2);
 
-			var numbersNoDublicate = numbers.Distinct();
-			foreach (var number in numbersNoDublicate)
+			//	foreach (var number in doubledNumbers)
+			//{
+
+			//	Console.WriteLine(number);
+			//}
+			IEnumerable<string> numbersAsStrings = numbers.Select(number => number.ToString());
+
+			foreach (var number in numbersAsStrings)
 			{
 
 				Console.WriteLine(number);
 			}
+
+			//var evenNumbers = numbers.Where(number => number % 2 == 0);
+
+			//var numbersNoDublicate = numbers.Distinct();
+			//foreach (var number in numbersNoDublicate)
+			//{
+
+			//	Console.WriteLine(number);
+			//}
 
 			//foreach (var number in evenNumbers)
 			//{
@@ -171,6 +186,23 @@ namespace LinqTutorial
 			//}
 
 			var words = new[] { "lion", "tiger", "snow leopard" };
+			var numberedWords = words.Select((word, index) => $"{index + 1}.{word}");
+			Console.WriteLine("numberedWords:");
+
+			foreach (var word in numberedWords)
+			{
+                Console.WriteLine(word);
+
+			}
+
+			//var toUpperCase = words.Select(word => word.ToUpper());
+
+			//foreach (var word in toUpperCase)
+			//{
+			//	Console.WriteLine(word);
+
+			//}
+
 			//bool isTigerPresent = words.Contains("tiger");
 			//Console.WriteLine(isTigerPresent);
 			//var orderedWords = words.OrderByDescending(x => x);
