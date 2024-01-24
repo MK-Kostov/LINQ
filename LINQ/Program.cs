@@ -122,6 +122,8 @@
 //}
 
 
+
+using Microsoft.Graph.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -133,12 +135,16 @@ namespace LinqTutorial
 		static void Main(string[] args)
 		{
 			var numbers = new[] { 5, 9, 2, 12, 6 };
-			bool isAnyLargerThan10 = numbers.Any(number => number > 10);
-			Console.WriteLine(isAnyLargerThan10);
+			bool is7Present = numbers.Contains(7);
+			Console.WriteLine(is7Present);
 
+			var words = new[] { "lion", "tiger", "snow leopard" };
+			bool isTigerPresent = words.Contains("tiger");
+			Console.WriteLine(isTigerPresent);
 
 			Console.ReadKey();
 		}
 	}
 }
+
 
