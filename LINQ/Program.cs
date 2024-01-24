@@ -134,13 +134,21 @@ namespace LinqTutorial
 	{
 		static void Main(string[] args)
 		{
-			var numbers = new[] { 16, 5, 9, 2, 12, 6 };
+			var numbers = new[] { 16, 5, 9, 2, 12, 6, 6, 9 };
 			var evenNumbers = numbers.Where(number => number % 2 == 0);
-			foreach (var number in evenNumbers)
+
+			var numbersNoDublicate = numbers.Distinct();
+			foreach (var number in numbersNoDublicate)
 			{
 
-                Console.WriteLine(number);
-            }
+				Console.WriteLine(number);
+			}
+
+			//foreach (var number in evenNumbers)
+			//{
+
+			//	Console.WriteLine(number);
+			//}
 			//var firstNumber = numbers.First();
 
 			//Console.WriteLine(firstNumber);
